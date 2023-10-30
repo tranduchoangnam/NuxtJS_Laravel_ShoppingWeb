@@ -1,0 +1,98 @@
+version: "3.8"
+
+services:
+  traefik:
+    image: traefik:2.8
+    restart: unless-stopped
+    command:
+      - --api.dashboard=true
+      - --entrypoints.http.address=:80
+      - --providers.docker
+      - --providers.docker.network=${COMPOSE_PROJECT_NAME}_frontend
+      - --providers.docker.watch=true
+      - --providers.docker.exposedbydefault=false
+    ports:
+      - ${PORT:-80}:80
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.traefik.rule=Host(`${TRAEFIK_DOMAIN}`)
+      - traefik.http.routers.traefik.service=api@internal
+      - traefik.http.middlewares.traefik-dashboard.redirectRegex.regex=/
+      - traefik.http.middlewares.traefik-dashboard.redirectRegex.replacement=/dashboard/
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  php:
+    image: tranduchoangnam/php-dev:latest
+    restart: unless-stopped
+    working_dir: /srv/app
+    environment:
+      DOCUMENT_ROOT: /srv/app/public
+    volumes:
+      - ./api:/srv/app
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.${COMPOSE_PROJECT_NAME}-api.loadbalancer.server.port=80
+      - traefik.http.routers.api.middlewares=api-strip-prefix
+      - traefik.http.middlewares.api-strip-prefix.stripprefix.prefixes=/api
+      - traefik.http.routers.api.rule=Host(`${DOMAIN}`) && PathPrefix(`/api`)
+      - traefik.http.routers.socket-auth.rule=Host(`${DOMAIN}`) && PathPrefix(`/broadcasting`)
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-telescope.rule=Host(`${DOMAIN}`) && (PathPrefix(`/telescope`) || PathPrefix(`/vendor`))
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-auth.rule=Host(`${DOMAIN}`) && (PathPrefix(`/serviceLogin/callback`))
+    extra_hosts:
+      - ${SOKETI_DOMAIN}:172.18.0.5
+      - ${SSO_HOST}:${SSO_HOST_IP:-100::}
+
+  node:
+    image: node:20-alpine3.17
+    restart: unless-stopped
+    tty: true
+    working_dir: /srv/web
+    ports:
+      - "24678:24678"
+      - "6006:6006"
+    volumes:
+      - ./web:/srv/web
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-web.rule=Host(`${DOMAIN}`)
+      - traefik.http.services.${COMPOSE_PROJECT_NAME}-web.loadbalancer.server.port=3000
+    extra_hosts:
+      - ${SOKETI_DOMAIN}:172.17.0.1
+      - ${SSO_HOST}:${SSO_HOST_IP:-100::}
+
+  soketi:
+    image: quay.io/soketi/soketi:1.4.0-16-alpine
+    restart: unless-stopped
+    environment:
+      SOKETI_DEFAULT_APP_ID: app-id
+      SOKETI_DEFAULT_APP_KEY: app-key
+      SOKETI_DEFAULT_APP_SECRET: app-secret
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.soketi.rule=Host(`${SOKETI_DOMAIN}`)
+      - traefik.http.services.soketi.loadbalancer.server.port=6001
+
+  redis:
+    image: redis:7.0-alpine
+    restart: unless-stopped
+    volumes:
+      - ${PATH_DATA:-./.data}/redis:/data
+
+  postgres:
+    image: postgres:14.5-alpine
+    restart: unless-stopped
+    volumes:
+      - ${PATH_DATA:-./.data}/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+
+  mailcatcher:
+    image: schickling/mailcatcher
+    restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-mailcatcher.rule=Host(`${MAILCATCHER_DOMAIN}`)
+      - traefik.http.services.${COMPOSE_PROJECT_NAME}-mailcatcher.loadbalancer.server.port=1080

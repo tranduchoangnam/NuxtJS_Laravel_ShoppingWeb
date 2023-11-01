@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header />
-    <div class="mt-[4rem]">
+    <div class="mt-[5rem]">
       <slot />
     </div>
   </div>

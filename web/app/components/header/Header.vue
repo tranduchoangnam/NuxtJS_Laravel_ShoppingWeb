@@ -1,6 +1,6 @@
 <template>
-  <div class="fixed !z-[1000] top-0 left-0 w-full bg-white">
-    <div class="flex px-16 items-center justify-between border-b-2 h-[4rem]">
+  <div class="fixed !z-[1000] top-0 left-0 w-full bg-white text-[1.15rem]">
+    <div class="flex px-16 items-center justify-between border-b-2 h-[5rem]">
       <img src="https://cdn.boo.vn/media/logo/stores/1/logo.png" />
       <div class="hidden lg:flex items-center">
         <!-- <div class="border px-2 rounded-md bg-blue-700 text-white">Graphic</div> -->

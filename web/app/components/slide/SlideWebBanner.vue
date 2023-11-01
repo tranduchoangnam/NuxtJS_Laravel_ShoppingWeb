@@ -1,6 +1,6 @@
 <template>
-  <div class="flex items-center">
-    <div class="text-grey text-[2rem]">
+  <div class="flex relative items-center mb-16">
+    <div class="absolute left-0 top-1/2 text-grey text-[2rem]">
       <v-icon
         class="cursor-pointer"
         @click="
@@ -10,8 +10,8 @@
         >mdi-chevron-left</v-icon
       >
     </div>
-    <img :src="slides[current]" />
-    <div class="text-grey text-[2rem]">
+    <img class="w-full" :src="slides[current]" />
+    <div class="absolute right-0 top-1/2 text-grey text-[2rem]">
       <v-icon
         class="cursor-pointer text-[2rem]"
         @click="
@@ -33,4 +33,12 @@ const slides = [
   "https://cdn.boo.vn/media/wysiwyg/online_webbanner_pc.png",
   "https://cdn.boo.vn/media/wysiwyg/1920x950px-4_2.png",
 ];
+onMounted(() => {
+  setInterval(() => {
+    current.value += 1;
+    current.value >= slides.length
+      ? (current.value = current.value - slides.length)
+      : current.value;
+  }, 8000);
+});
 </script>

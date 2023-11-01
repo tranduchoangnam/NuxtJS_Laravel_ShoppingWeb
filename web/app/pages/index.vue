@@ -1,9 +1,24 @@
 <template>
   <div>
     <SlideWebBanner />
-    <GroupProduct title="NEW ARRIVAL" :type="0" />
-    <GroupProduct title="BEST SELLER" :type="0" />
-    <GroupProduct title="BEST PRICE" :type="1" />
+    <GroupProduct
+      v-if="newArrival"
+      title="NEW ARRIVAL"
+      :type="0"
+      :data="newArrival"
+    />
+    <GroupProduct
+      v-if="newArrival"
+      title="BEST SELLER"
+      :type="0"
+      :data="newArrival"
+    />
+    <GroupProduct
+      v-if="newArrival"
+      title="BEST PRICE"
+      :type="1"
+      :data="newArrival"
+    />
     <ModernTitle name="MIX & MATCH" />
     <img
       class="mb-16"
@@ -26,7 +41,28 @@
   </div>
 </template>
 <script setup lang="ts">
+import axios from "axios";
 const toggle = ref(false);
+const newArrival = ref(null);
+const token = "1|eVOCuj4qz9gRDjKXY9YaNTVGg30sWLMbiwJZWqvq4f6c7640";
+onMounted(async () => {
+  try {
+    const response = await axios.get(
+      "http://exchange.shop.local:8000/api/api/products",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    // Handle the response data here
+    newArrival.value = response.data;
+    console.log(response.data);
+  } catch (error) {
+    // Handle errors here
+    console.error("Request failed:", error);
+  }
+});
 </script>
 <style>
 v-icon {

@@ -1,9 +1,11 @@
 <template>
   <div class="flex flex-col mx-16 label-hover">
-    <div class="font-bold">{{ title }}</div>
-    <div v-for="(item, index) in list" :key="index" @click="next(item.link)">
+    <NuxtLink :to="link" class="font-bold">
+      {{ title }}
+    </NuxtLink>
+    <NuxtLink v-for="(item, index) in list" :key="index" :to="item.link">
       {{ item.name }}
-    </div>
+    </NuxtLink>
   </div>
 </template>
 <script setup lang="ts">
@@ -17,17 +19,18 @@ defineProps({
     type: String,
     required: true,
   },
+  link: {
+    type: String,
+    required: true,
+  },
   list: {
     type: Array as PropType<Item[]>,
     required: true,
   },
 });
-const next = (link: string) => {
-  console.log(link);
-};
 </script>
 <style scoped>
-.label-hover > div:hover {
+.label-hover > :hover {
   color: red;
   cursor: pointer;
 }

@@ -44,16 +44,11 @@
 import axios from "axios";
 const toggle = ref(false);
 const newArrival = ref(null);
-const token = "1|eVOCuj4qz9gRDjKXY9YaNTVGg30sWLMbiwJZWqvq4f6c7640";
+// const token = "1|eVOCuj4qz9gRDjKXY9YaNTVGg30sWLMbiwJZWqvq4f6c7640";
 onMounted(async () => {
   try {
     const response = await axios.get(
-      "http://exchange.shop.local:8000/api/api/products",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      "http://exchange.shop.local:8000/api/api/products"
     );
     // Handle the response data here
     newArrival.value = response.data;

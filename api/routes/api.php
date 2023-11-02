@@ -29,7 +29,15 @@ Route::get('/users/{id}', [UserController::class,'show'])->name('users.show');
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::get('/products', [ProductController::class,'index'])->name('products.index');
+Route::controller(ProductController::class)
+    ->prefix('/products')
+    ->name('products.')
+    ->group(function(){
+        Route::get('/', 'index')->name('index');
+        Route::get('/collection/{search}', 'showCollection')->name('showCollection');
+        Route::get('/brand/{search}', 'showBrand')->name('showBrand');
+    });
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::controller(ProductController::class)
     ->prefix('/products')

@@ -1,24 +1,28 @@
-import DataHandler from 'ioredis/built/DataHandler';
 <template>
-  <v-card flat color="var(--color-background)">
-    <v-img
-      :src="data.image[currentColor]"
-      @mouseover="next(data.image.length - 1)"
-      @mouseleave="back(data.image.length - 1)"
-    />
-    <div class="flex mt-4 flex-col items-center">
-      <div class="h-[3rem] overflow-hidden">{{ data.name }}</div>
-      <div class="font-bold">{{ convertStr(data.price) }}</div>
-    </div>
-    <div class="flex mt-4 justify-center">
-      <ButtonColor
-        v-for="(color, index) in data.color"
-        :color="color"
-        @click="currentColor = index"
-        :class="currentColor === index ? 'border-4' : ''"
+  <div class="gridd h-full">
+    <div>
+      <img
+        class="h-full object-cover"
+        :src="data.image[currentColor]"
+        @mouseover="next(data.image.length - 1)"
+        @mouseleave="back(data.image.length - 1)"
       />
     </div>
-  </v-card>
+    <div class="flex flex-col items-center justify-between pt-4">
+      <div class="text-center h-[51%] overflow-hidden">
+        {{ data.name }}
+      </div>
+      <div class="font-bold">{{ convertStr(data.price) }}</div>
+      <div class="flex justify-center h-[20%]">
+        <ButtonColor
+          v-for="(color, index) in data.color"
+          :color="color"
+          @click="currentColor = index"
+          :class="currentColor === index ? 'border-[0.2rem]' : ''"
+        />
+      </div>
+    </div>
+  </div>
 </template>
 <script setup lang="ts">
 const currentColor = ref(0);
@@ -57,3 +61,9 @@ defineProps({
   },
 });
 </script>
+<style scoped>
+.gridd {
+  display: grid;
+  grid-template-rows: 7fr 2fr;
+}
+</style>

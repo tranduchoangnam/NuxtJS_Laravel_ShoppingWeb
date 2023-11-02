@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -44,11 +45,18 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function showCollection(string $search)
     {
-        //
-        $data=Product::find($id);
-        return $data;
+        $decodedSearch = str_replace('-',' ', $search);
+        $decodedSearch= Str::upper($decodedSearch);
+        $products = Product::where('collection', $decodedSearch)->get();
+        return $products;
+    }
+    public function showBrand(string $search)
+    {
+        $decodedSearch= Str::upper($search);
+        $products = Product::where('brand', $decodedSearch)->get();
+        return $products;
     }
 
     /**

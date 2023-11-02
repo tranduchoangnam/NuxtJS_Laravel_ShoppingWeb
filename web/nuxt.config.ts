@@ -7,6 +7,10 @@ import head from "./nuxt/head";
 export default defineNuxtConfig({
   srcDir: path.resolve(__dirname, "app"),
 
+  router: {
+    base: "http://exchange.shop.local:8000",
+  },
+
   app: {
     head: {
       title: "Exchange Shop",

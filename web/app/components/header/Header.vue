@@ -1,25 +1,28 @@
 <template>
   <div class="fixed !z-[1000] top-0 left-0 w-full bg-white text-[1.15rem]">
     <div class="flex px-16 items-center justify-between border-b-2 h-[5rem]">
-      <img src="https://cdn.boo.vn/media/logo/stores/1/logo.png" />
+      <NuxtLink to="/"
+        ><img src="https://cdn.boo.vn/media/logo/stores/1/logo.png" />
+      </NuxtLink>
       <div class="hidden lg:flex items-center">
         <!-- <div class="border px-2 rounded-md bg-blue-700 text-white">Graphic</div> -->
-        <div
-          v-for="(name, index) in listNav"
+        <NuxtLink
+          v-for="(nav, index) in listNav"
+          :to="nav.link"
           :key="index"
-          :name="name"
+          :name="nav.title"
           class="h-[4rem] px-6 flex items-center cursor-pointer hover:font-black"
           @mouseover="
-            hoverNav = name;
-            lastNav = name;
+            hoverNav = nav.title;
+            lastNav = nav.title;
           "
           @mouseleave="delayMouse"
         >
           <HeaderNav
-            :name="name"
+            :name="nav.title"
             :class="index === 0 ? 'graphic' : index === 5 ? 'text-red-500' : ''"
           />
-        </div>
+        </NuxtLink>
       </div>
       <v-card-actions>
         <v-icon @click="next">mdi-magnify</v-icon>
@@ -31,7 +34,7 @@
     <HeaderMenu
       class="absolute top-[4rem] left-0 w-full"
       v-if="lastNav"
-      :nav="listNav.indexOf(lastNav)"
+      :nav="showIndex(lastNav)"
       @mouseover="hoverNav = lastNav"
       @mouseleave="
         hoverNav = '';
@@ -44,13 +47,17 @@
 const lastNav = ref("");
 const hoverNav = ref("");
 const listNav = [
-  "GRAPHIC",
-  "WOMEN",
-  "MAN",
-  "NEW ARRIVAL",
-  "COLLECTION",
-  "DISCOUNT",
+  { title: "GRAPHIC", link: "/graphic" },
+  { title: "WOMEN", link: "/" },
+  { title: "MAN", link: "/" },
+  { title: "NEW ARRIVAL", link: "/" },
+  { title: "COLLECTION", link: "/" },
+  { title: "DISCOUNT", link: "/" },
 ];
+const showIndex = (item: string) => {
+  const index = listNav.findIndex((navItem) => navItem.title === item);
+  return index;
+};
 const delayMouse = () => {
   setTimeout(() => {
     if (!hoverNav.value) {

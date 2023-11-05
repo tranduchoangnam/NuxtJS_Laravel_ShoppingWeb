@@ -16,6 +16,7 @@
       <div class="flex justify-center h-[20%]">
         <ButtonColor
           v-for="(color, index) in data.color"
+          :key="index"
           :color="color"
           @click="currentColor = index"
           :class="currentColor === index ? 'border-[0.2rem]' : ''"

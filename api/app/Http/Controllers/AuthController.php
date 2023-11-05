@@ -26,25 +26,18 @@ class AuthController extends Controller
     }
     public function signin(Request $request)
     {
-        $pass = User::where('email', $request->email)->get('password');
-        // dd($request->password);
-        if ($pass) {
-            // dd($pass[0]->password, $request->password);
-            // $hash=Hash::make($request->password);
-            // dd($request->password,$hash,Hash::check($request->password, $hash));
-            if (Hash::check($request->password, $pass[0]->password)) {
-                $user = User::where('email', $request->email)->first();
-                // dd($user);
-                $token = $user->createToken('myapptoken')->plainTextToken;
-                $response = [
-                    'user' => $user,
-                    'token' => $token
-                ];
-                return response($response, 200);
-            }      
-        }
-
-        return response(null,401);
+        $user = User::where('email', $request->email)->first();
+        if (!$user) return response('Email not existed', 401);
+        $pass=$user->password;
+        if (Hash::check($request->password, $pass)) {
+            $token = $user->createToken('myapptoken')->plainTextToken;
+            $response = [
+                'user' => $user,
+                'token' => $token
+            ];
+            return response($response, 200);
+        }      
+        return response('Wrong account. Please sign in again.',401);
     }
 
     public function signup(Request $request)
@@ -113,6 +106,6 @@ class AuthController extends Controller
     }
     public function current_user(Request $request)
     {
-        return auth()->user();
+        return ['user'=> auth()->user(), 'token'=> $request->bearerToken()];
     }
 }

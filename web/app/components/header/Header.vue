@@ -24,12 +24,20 @@
           />
         </NuxtLink>
       </div>
-      <v-card-actions>
+      <div class="flex text-[1.5rem]">
         <v-icon @click="next">mdi-magnify</v-icon>
         <v-icon @click="next" class="ml-4">mdi-heart-outline</v-icon>
         <v-icon @click="next" class="ml-4">mdi-cart-outline</v-icon>
-        <v-icon @click="next" class="ml-4">mdi-account-outline</v-icon>
-      </v-card-actions>
+        <NuxtLink v-if="!auth.user" to="/auth/signin"
+          ><v-icon class="ml-4">mdi-account-outline</v-icon></NuxtLink
+        >
+        <div class="relative" v-else>
+          <v-icon @click="toggleUserMenu = !toggleUserMenu" class="ml-4"
+            >mdi-account-outline</v-icon
+          >
+          <UserMenu v-if="toggleUserMenu" />
+        </div>
+      </div>
     </div>
     <HeaderMenu
       class="absolute top-[4rem] left-0 w-full"
@@ -44,6 +52,11 @@
   </div>
 </template>
 <script setup lang="ts">
+import UserMenu from "./UserMenu.vue";
+import { useAuthStore } from "~/store/auth";
+const toggleUserMenu = ref(false);
+const auth = useAuthStore();
+const token = useCookie<string | null>("token");
 const lastNav = ref("");
 const hoverNav = ref("");
 const listNav = [

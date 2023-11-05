@@ -42,7 +42,7 @@ export default defineNuxtConfig({
       analyticsTrackId: "",
       ssoImagesUrl: process.env.NUXT_PUBLIC_SSO_IMAGES_URL ?? "",
       ssoNonceCookie:
-        process.env.NUXT_PUBLIC_SSO_NONCE_COOKIE ?? "viblo_session_nonce",
+        process.env.NUXT_PUBLIC_SSO_NONCE_COOKIE ?? "shop_session_nonce",
     },
   },
 
@@ -66,12 +66,5 @@ export default defineNuxtConfig({
     ],
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
-  ],
-
-  components: [
-    {
-      path: "~/components", // will get any components nested in let's say /components/test too
-      pathPrefix: false,
-    },
   ],
 });

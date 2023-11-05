@@ -28,21 +28,11 @@
     <GroupCollection />
     <ModernTitle name="BOO | BRAND" />
     <GroupBrand class="mb-16" />
-    <div class="flex">
-      <button>
-        <v-icon @click="toggle = !toggle">mdi-chevron-right</v-icon>
-      </button>
-      <div
-        class="transition ease-in-out translate-x-[50%] fade-0 duration-1000"
-      >
-        <p v-if="toggle">Hello</p>
-      </div>
-    </div>
   </div>
 </template>
 <script setup lang="ts">
 import axios from "axios";
-const toggle = ref(false);
+import ModernTitle from "~/components/title/ModernTitle.vue";
 const newArrival = ref(null);
 // const token = "1|eVOCuj4qz9gRDjKXY9YaNTVGg30sWLMbiwJZWqvq4f6c7640";
 onMounted(async () => {

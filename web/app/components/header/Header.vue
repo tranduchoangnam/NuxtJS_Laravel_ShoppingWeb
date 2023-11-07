@@ -40,7 +40,7 @@
       </div>
     </div>
     <HeaderMenu
-      class="absolute top-[4rem] left-0 w-full"
+      class="absolute top-[5rem] left-0 w-full"
       v-if="lastNav"
       :nav="showIndex(lastNav)"
       @mouseover="hoverNav = lastNav"
@@ -56,7 +56,6 @@ import UserMenu from "./UserMenu.vue";
 import { useAuthStore } from "~/store/auth";
 const toggleUserMenu = ref(false);
 const auth = useAuthStore();
-const token = useCookie<string | null>("token");
 const lastNav = ref("");
 const hoverNav = ref("");
 const listNav = [

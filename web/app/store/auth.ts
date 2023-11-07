@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "~/libs/axios";
 
-interface User {
+export interface User {
   id: number;
   first_name: string;
   last_name: string;
@@ -23,6 +23,27 @@ export const useAuthStore = defineStore("auth", {
       try {
         const auth = await axios.get(
           "http://exchange.shop.local:8000/api/api/auth",
+          {
+            headers: { Authorization: `Bearer ${this.token}` },
+          }
+        );
+        this.user = auth.data.user;
+        this.token = auth.data.token;
+      } catch (error) {
+        console.log("error", error);
+        throw error;
+      }
+    },
+    async update(data: {
+      first_name: string;
+      last_name: string;
+      address: string;
+      phone: string;
+    }) {
+      try {
+        const auth = await axios.post(
+          "http://exchange.shop.local:8000/api/api/auth",
+          data,
           {
             headers: { Authorization: `Bearer ${this.token}` },
           }

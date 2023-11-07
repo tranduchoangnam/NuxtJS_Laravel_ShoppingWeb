@@ -50,9 +50,17 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
         //
+        $update = $request->all();
+        $user=auth()->user();
+    
+        // Use the update method on the model instance
+        $user->fill($update);
+        $user->save();
+    
+        return response("Updated",200);
     }
 
     /**

@@ -33,13 +33,13 @@
 <script setup lang="ts">
 import axios from "axios";
 import ModernTitle from "~/components/title/ModernTitle.vue";
+useHead({
+  title: "BOO | Home",
+});
 const newArrival = ref(null);
-// const token = "1|eVOCuj4qz9gRDjKXY9YaNTVGg30sWLMbiwJZWqvq4f6c7640";
 onMounted(async () => {
   try {
-    const response = await axios.get(
-      "http://exchange.shop.local:8000/api/api/products"
-    );
+    const response = await axios.get("/api/api/products");
     // Handle the response data here
     newArrival.value = response.data;
     console.log(response.data);

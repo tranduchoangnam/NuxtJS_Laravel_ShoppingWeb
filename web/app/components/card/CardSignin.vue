@@ -5,26 +5,31 @@
         class="mb-16 w-[6rem]"
         src="https://cdn.boo.vn/media/logo/stores/1/logo.png"
       />
-      <input
-        class="w-full px-4 py-1"
-        :class="errorEmail ? 'border-error' : 'border-input'"
-        type="text"
+
+      <InputDefault
+        :validateFunc="validateEmail"
         placeholder="Email"
-        v-model="inputEmail"
+        type="text"
+        :submit="submit"
+        @inputValue="
+          (e) => {
+            inputEmail = e;
+            errorEmail = validateEmail(e);
+          }
+        "
       />
-      <div class="text-[0.9rem] text-red mb-4">
-        {{ errorEmail }}
-      </div>
-      <input
-        class="w-full px-4 py-1"
-        :class="errorPassword ? 'border-error' : 'border-input'"
-        type="password"
+      <InputDefault
+        :validateFunc="validatePassword"
         placeholder="Password"
-        v-model="inputPassword"
+        type="password"
+        :submit="submit"
+        @inputValue="
+          (e) => {
+            inputPassword = e;
+            errorPassword = validatePassword(e);
+          }
+        "
       />
-      <div class="right-[-10rem] text-[0.9rem] text-red mb-4">
-        {{ errorPassword }}
-      </div>
       <ButtonRounded @click="submitForm" bgColor="#000000" textColor="#FFFFFF">
         <template #name>
           <p>SIGN IN</p>
@@ -83,44 +88,42 @@ const social = [
 ];
 const loading = ref(false);
 const message = ref("");
+
 const inputEmail = ref("");
 const errorEmail = ref("");
 
 const inputPassword = ref("");
 const errorPassword = ref("");
 
-watch(inputEmail, (input) => {
+const submit = ref(false);
+
+const validateEmail = (input: string) => {
   const pattern = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-  if (!pattern.test(input)) {
-    errorEmail.value = "Email is invalid";
-  } else {
-    errorEmail.value = "";
-  }
-});
-watch(inputPassword, (input) => {
+  if (!pattern.test(input)) return "Email is invalid";
+  return "";
+};
+const validatePassword = (input: string) => {
   const pattern =
     /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-  if (!pattern.test(input)) {
-    errorPassword.value =
-      "Password must contain at least 8 characters, 1 uppercase, 1 digit and 1 special character";
-  } else {
-    errorPassword.value = "";
-  }
-});
+  if (!pattern.test(input))
+    return "Password must contain at least 8 characters, 1 uppercase, 1 digit and 1 special character";
+  return "";
+};
+
 const submitForm = async () => {
-  if (inputEmail.value === "") errorEmail.value = "Email is required";
-  if (inputPassword.value === "") errorPassword.value = "Password is required";
+  submit.value = true;
+  if (inputEmail.value === "" || inputPassword.value === "") {
+    return;
+  }
   if (errorEmail.value === "" && errorPassword.value === "") {
     loading.value = true;
     try {
-      const response = await axios.post(
-        "http://exchange.shop.local:8000/api/api/auth/signin",
-        {
-          email: inputEmail.value,
-          password: inputPassword.value,
-        }
-      );
+      const response = await axios.post("/api/api/auth/signin", {
+        email: inputEmail.value,
+        password: inputPassword.value,
+      });
       loading.value = false;
+      submit.value = false;
       console.log(response.data.token);
       auth.user = response.data.user;
       console.log(auth.user);
@@ -129,9 +132,13 @@ const submitForm = async () => {
       await navigateTo("/");
     } catch (error: any) {
       loading.value = false;
+      submit.value = false;
       message.value = error.response.data;
     }
-  } else return;
+  } else {
+    submit.value = false;
+    return;
+  }
 };
 </script>
 <style>

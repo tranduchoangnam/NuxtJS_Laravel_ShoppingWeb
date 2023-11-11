@@ -57,10 +57,14 @@ class UserController extends Controller
         $user=auth()->user();
     
         // Use the update method on the model instance
-        $user->fill($update);
-        $user->save();
-    
-        return response("Updated",200);
+        try{
+            $user->fill($update);
+            $user->save();
+            return response("Updated",200);
+        }
+        catch(\Exception $e){
+            return response("Failed",500);
+        }
     }
 
     /**

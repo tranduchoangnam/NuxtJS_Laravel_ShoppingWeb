@@ -52,7 +52,6 @@
 </template>
 <script setup lang="ts">
 import { useAuthStore } from "@/store/auth";
-import { add } from "lodash";
 useHead({
   title: "BOO | Account",
 });

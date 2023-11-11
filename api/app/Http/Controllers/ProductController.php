@@ -48,8 +48,8 @@ class ProductController extends Controller
     public function showCollection(string $search)
     {
         $decodedSearch = str_replace('-',' ', $search);
-        $decodedSearch= Str::upper($decodedSearch);
-        $products = Product::where('collection', $decodedSearch)->get();
+        $decodedSearch= strtolower($decodedSearch);
+        $products = Product::whereRaw('LOWER(collection) = ?', [$decodedSearch])->get();
         return $products;
     }
     public function showBrand(string $search)

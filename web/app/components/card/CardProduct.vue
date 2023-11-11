@@ -1,14 +1,14 @@
 <template>
-  <div class="gridd h-full">
-    <div>
+  <div class="grid grid-rows-4 h-full">
+    <div class="row-span-3 border">
       <img
-        class="h-full object-cover"
+        class="object-cover h-full"
         :src="data.image[currentColor]"
         @mouseover="next(data.image.length - 1)"
         @mouseleave="back(data.image.length - 1)"
       />
     </div>
-    <div class="flex flex-col items-center justify-between pt-4">
+    <div class="row-span-1 flex flex-col items-center justify-between pt-4">
       <div class="text-center h-[51%] overflow-hidden">
         {{ data.name }}
       </div>

@@ -52,15 +52,61 @@
               }
             "
           />
+          <div
+            class="w-full border-input px-4 py-1 mb-4"
+            @click="choose"
+            placeholder="Address"
+            :class="{
+              'text-gray-400': !auth.user?.address,
+              'text-black': auth.user?.address || finalAddress,
+            }"
+          >
+            {{
+              finalAddress
+                ? finalAddress
+                : auth.user?.address
+                ? auth.user?.address
+                : "Address"
+            }}
+          </div>
         </div>
       </div>
       <div class="col-span-1">
         <p class="text-[1.5rem] mt-4 mb-8">Address</p>
-        <InputAddress @inputValue="(e) => (inputAddress = e)" />
-        {{ inputAddress }}
-        {{ inputFirstName }}
-        {{ inputLastName }}
-        {{ inputPhone }}
+        <InputAddress
+          :data="cities"
+          type="City"
+          @inputValue="
+            (e) => {
+              fullAddress = e.Name;
+              districts = e.Districts;
+            }
+          "
+        />
+        <InputAddress
+          :data="districts"
+          type="District"
+          @inputValue="
+            (e) => {
+              fullAddress = e.Name + ', ' + fullAddress;
+              wards = e.Wards;
+            }
+          "
+        />
+        <InputAddress
+          :data="wards"
+          type="Ward"
+          @inputValue="
+            (e) => {
+              fullAddress = e.Name + ', ' + fullAddress;
+            }
+          "
+        />
+        <input
+          class="w-full border-input px-4 py-1 mb-4"
+          placeholder="Address"
+          v-model="inputAddress"
+        />
       </div>
     </div>
     <div
@@ -69,10 +115,16 @@
     >
       <p>SAVE</p>
     </div>
+    <SuccessNoti v-if="message[7] === 's'" :message="message" />
+    <ErrorNoti v-if="message[7] === 'f'" :message="message" />
   </div>
 </template>
 <script setup lang="ts">
+import axios from "axios";
 import { useAuthStore } from "@/store/auth";
+import SuccessNoti from "@/components/notification/SuccessNoti.vue";
+import ErrorNoti from "~/components/notification/ErrorNoti.vue";
+import { City, District, Ward } from "@/utils/types";
 useHead({
   title: "BOO | Account",
 });
@@ -91,7 +143,13 @@ const inputLastName = ref("");
 const errorLastName = ref("");
 const inputPhone = ref("");
 const errorPhone = ref("");
+const fullAddress = ref("");
 const inputAddress = ref("");
+const message = ref("");
+
+const cities = ref<City[]>([]);
+const districts = ref<District[]>([]);
+const wards = ref<Ward[]>([]);
 
 const validateName = (name: string) => {
   const pattern = /^[A-Za-z.'-]+$/;
@@ -111,20 +169,42 @@ const submitForm = async () => {
   if (errorFirstName.value) return;
   if (errorLastName.value) return;
   if (errorPhone.value) return;
-  const msg = await auth.update({
+  const res = await auth.update({
     first_name: inputFirstName.value,
     last_name: inputLastName.value,
     phone: inputPhone.value,
-    address: inputAddress.value,
+    address: finalAddress.value,
   });
+  console.log(res);
+  if (res.status === 200) message.value = "Update successfully";
+  else message.value = "Update failed";
+  setTimeout(() => {
+    message.value = "";
+  }, 3000);
+
   submit.value = false;
 };
+
+const finalAddress = computed(() => {
+  const separate = inputAddress.value ? ", " : "";
+  return inputAddress.value + separate + fullAddress.value;
+});
+
 onMounted(async () => {
   auth.token = token.value;
   await auth.get();
-  //   console.log(auth.token);
-  //   console.log(auth.user);
-  //   console.log(token.value);
+  try {
+    const res = await axios.get("/db.address.json");
+    cities.value = res.data;
+  } catch (e) {
+    console.log(e);
+  }
 });
+
+const choose = () => {
+  const target = document.getElementById("choose-city");
+  console.log(target);
+  if (target) target.focus();
+};
 </script>
 <style scoped></style>

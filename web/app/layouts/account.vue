@@ -15,6 +15,9 @@
           <p>{{ item.title }}</p>
           <v-icon class="">mdi-chevron-right</v-icon>
         </NuxtLink>
+        <div class="h-[20rem] w-[10rem] mx-auto flex justify-center">
+          <CardProduct v-if="products" :data="products[current]" />
+        </div>
       </div>
       <div class="w-full p-8 border-box">
         <slot />
@@ -23,14 +26,36 @@
   </div>
 </template>
 <script setup lang="ts">
+import axios from "axios";
 const menu = [
   { title: "My Account", link: "/account" },
-  { title: "Address", link: "/account/address" },
   { title: "Orders", link: "/orders" },
-  { title: "Payment methods", link: "/payment-methods" },
   { title: "Wishlist", link: "/wishlist" },
   { title: "Stores Map", link: "/stores" },
+  { title: "Buy now", link: "/" },
 ];
+const products: Ref<Array<Object> | null> = ref(null);
+const current = ref(0);
+onMounted(async () => {
+  try {
+    const response = await axios.get("/api/api/products");
+    // Handle the response data here
+    products.value = response.data;
+    // console.log(response.data);
+  } catch (error) {
+    // Handle errors here
+    console.error("Request failed:", error);
+  }
+  console.log("hi");
+  if (products.value) {
+    setInterval(() => {
+      current.value += 1;
+      current.value >= products.value!.length
+        ? (current.value = current.value - products.value!.length)
+        : current.value;
+    }, 8000);
+  }
+});
 </script>
 <style scoped>
 .border-box {

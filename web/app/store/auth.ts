@@ -42,7 +42,7 @@ export const useAuthStore = defineStore("auth", {
     }) {
       try {
         const auth = await axios.post(
-          "http://exchange.shop.local:8000/api/api/auth",
+          "http://exchange.shop.local:8000/api/api/user/update",
           data,
           {
             headers: { Authorization: `Bearer ${this.token}` },
@@ -50,9 +50,10 @@ export const useAuthStore = defineStore("auth", {
         );
         this.user = auth.data.user;
         this.token = auth.data.token;
-      } catch (error) {
+        return auth;
+      } catch (error: any) {
         console.log("error", error);
-        throw error;
+        return error.response;
       }
     },
   },

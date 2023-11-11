@@ -128,33 +128,33 @@ const items = ref([
       },
       {
         title: "MARVEL GO VN",
-        link: "/",
+        link: "/collection/marvel-go-vn",
         list: [],
       },
       {
         title: "BOO LAAB x HANOI BUFFALOES",
-        link: "/",
+        link: "/collection/hnbxboolaab",
         list: [],
       },
 
       {
         title: "BOOLAAB INFINITEE 07",
-        link: "/",
+        link: "/collection/infinite-07",
         list: [],
       },
       {
         title: "BOOLAAB EXPERIMENTAL",
-        link: "/",
+        link: "/collection/boolaab",
         list: [],
       },
       {
-        title: "BOO ESSENTIAL",
-        link: "/",
+        title: "BOO ESSENTIALS",
+        link: "/collection/booxessentials",
         list: [],
       },
       {
         title: "BOO LOONEY TUNES",
-        link: "/",
+        link: "/collection/looney-tunes",
         list: [],
       },
     ],

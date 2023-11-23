@@ -7,6 +7,7 @@
       :type="0"
       :data="newArrival"
     />
+    <CardLoadingSkeleton />
     <GroupProduct
       v-if="newArrival"
       title="BEST SELLER"

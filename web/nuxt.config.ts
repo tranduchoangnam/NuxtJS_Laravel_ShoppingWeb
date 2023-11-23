@@ -67,4 +67,8 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
   ],
+  components: {
+    global: true,
+    dirs: ["~/components"],
+  },
 });

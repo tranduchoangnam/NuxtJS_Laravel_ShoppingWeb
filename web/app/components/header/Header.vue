@@ -27,8 +27,18 @@
       <div class="flex text-[1.5rem]">
         <v-icon @click="next">mdi-magnify</v-icon>
         <v-icon @click="next" class="ml-4">mdi-heart-outline</v-icon>
-        <v-icon @click="next" class="ml-4">mdi-cart-outline</v-icon>
-        <NuxtLink v-if="!auth.user" to="/auth/signin"
+        <div class="relative">
+          <v-icon @click="toggleCart = !toggleCart" class="ml-4"
+            >mdi-cart-outline</v-icon
+          >
+          <div
+            v-if="totalProduct"
+            class="absolute top-0 right-0 rounded-full w-[1rem] h-[1rem] flex justify-center items-center bg-red-600"
+          >
+            <p class="text-white text-[0.7rem]">{{ totalProduct }}</p>
+          </div>
+        </div>
+        <NuxtLink v-if="!auth.token" to="/auth/signin"
           ><v-icon class="ml-4">mdi-account-outline</v-icon></NuxtLink
         >
         <div class="relative" v-else>
@@ -49,12 +59,24 @@
         delayMouse();
       "
     />
+    <CardCart v-if="toggleCart" @response="() => (toggleCart = !toggleCart)" />
   </div>
 </template>
 <script setup lang="ts">
 import UserMenu from "./UserMenu.vue";
 import { useAuthStore } from "~/store/auth";
+import { useCartStore } from "@/store/cart";
+const cart = useCartStore();
+const totalProduct = ref(0);
+watch(
+  () => cart.total,
+  (value) => {
+    totalProduct.value = value;
+  }
+);
+
 const toggleUserMenu = ref(false);
+const toggleCart = ref(false);
 const auth = useAuthStore();
 const lastNav = ref("");
 const hoverNav = ref("");

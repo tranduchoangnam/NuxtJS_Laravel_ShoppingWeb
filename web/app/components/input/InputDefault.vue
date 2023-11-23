@@ -42,14 +42,13 @@ const data = defineProps({
     type: Boolean,
     required: true,
   },
-  userData: {
-    type: Object as PropType<User>,
-    required: false,
+  user: {
+    type: Object as PropType<User> | null,
   },
 });
 onMounted(() => {
-  input.value = data.userData
-    ? (data.userData[init(data.placeholder) as keyof User] as string)
+  input.value = data.user
+    ? (data.user[init(data.placeholder) as keyof User] as string)
     : "";
 });
 const emit = defineEmits(["inputValue"]);

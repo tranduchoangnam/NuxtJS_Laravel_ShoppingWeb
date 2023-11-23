@@ -72,9 +72,8 @@
 import axios from "axios";
 import Google from "~/static/google.png";
 import Facebook from "~/static/facebook.png";
-import ErrorNoti from "../notification/ErrorNoti.vue";
 import { useAuthStore } from "~/store/auth";
-const token = useCookie<string | null>("token");
+import { setCookie } from "~/utils/cookies";
 const auth = useAuthStore();
 const social = [
   {
@@ -118,17 +117,10 @@ const submitForm = async () => {
   if (errorEmail.value === "" && errorPassword.value === "") {
     loading.value = true;
     try {
-      const response = await axios.post("/api/api/auth/signin", {
-        email: inputEmail.value,
-        password: inputPassword.value,
-      });
+      await auth.signin(inputEmail.value, inputPassword.value);
       loading.value = false;
       submit.value = false;
-      console.log(response.data.token);
-      auth.user = response.data.user;
-      console.log(auth.user);
-      token.value = response.data.token;
-      axios.defaults.headers.common["Authorization"] = `Bearer ${token.value}`;
+
       await navigateTo("/");
     } catch (error: any) {
       loading.value = false;

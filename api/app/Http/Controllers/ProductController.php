@@ -45,6 +45,14 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
+    public function show(string $id)
+    {
+        $product = Product::find($id);
+        if (!$product) {
+            return response("Not found", 404);
+        }
+        return $product;
+    }
     public function showCollection(string $search)
     {
         $decodedSearch = str_replace('-',' ', $search);

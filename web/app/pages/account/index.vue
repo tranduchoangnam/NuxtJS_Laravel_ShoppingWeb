@@ -57,17 +57,16 @@ useHead({
 });
 definePageMeta({
   layout: "account",
+  middleware: "auth",
 });
 
 const auth = useAuthStore();
-const token = useCookie<string | null>("token");
 
-onMounted(async () => {
-  auth.token = token.value;
-  await auth.get();
-  //   console.log(auth.token);
-  //   console.log(auth.user);
-  //   console.log(token.value);
-});
+// onMounted(async () => {
+//   await auth.get();
+//   //   console.log(auth.token);
+//   //   console.log(auth.user);
+//   //   console.log(token.value);
+// });
 </script>
 <style scoped></style>

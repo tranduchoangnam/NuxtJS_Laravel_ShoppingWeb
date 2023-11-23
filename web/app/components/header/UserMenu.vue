@@ -32,11 +32,10 @@
   </div>
 </template>
 <script setup lang="ts">
-const user = useCookie<object | null>("user");
-const token = useCookie<string | null>("token");
-const signout = () => {
-  user.value = null;
-  token.value = null;
+import { useAuthStore } from "~/store/auth";
+const auth = useAuthStore();
+const signout = async () => {
+  await auth.signout();
   window.location.href = "/";
 };
 </script>

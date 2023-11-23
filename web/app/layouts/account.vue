@@ -15,8 +15,17 @@
           <p>{{ item.title }}</p>
           <v-icon class="">mdi-chevron-right</v-icon>
         </NuxtLink>
-        <div class="h-[20rem] w-[10rem] mx-auto flex justify-center">
-          <CardProduct v-if="products" :data="products[current]" />
+        <div class="relative h-[20rem] w-[10rem] mx-auto flex justify-center">
+          <CardProduct
+            class="!text-[0.7rem]"
+            v-if="products"
+            :data="products[current]"
+          />
+          <div
+            class="top-1 right-2 absolute text-red-600 font-bold flex items-center text-[1.4rem]"
+          >
+            <v-icon>mdi-fire</v-icon>HOT
+          </div>
         </div>
       </div>
       <div class="w-full p-8 border-box">

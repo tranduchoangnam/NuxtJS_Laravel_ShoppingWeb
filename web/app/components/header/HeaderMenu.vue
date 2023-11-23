@@ -91,30 +91,8 @@ const items = ref([
   {
     item: [
       {
-        title: "TOP",
-        link: "/",
-        list: [
-          { name: "T-shirt", link: "/" },
-          { name: "Polo", link: "/" },
-          { name: "Gile", link: "/" },
-          { name: "Shirt", link: "/" },
-          { name: "Sweatshirt & Hoodies", link: "/" },
-        ],
-      },
-      {
-        title: "BOTTOM",
-        link: "/",
-        list: [
-          { name: "Jeans", link: "/" },
-          { name: "Jogger", link: "/" },
-          { name: "Khaki", link: "/" },
-          { name: "Short", link: "/" },
-          { name: "Skirt", link: "/" },
-        ],
-      },
-      {
-        title: "ACCESSORIES",
-        link: "/",
+        title: "Explore Now",
+        link: "/graphic",
         list: [],
       },
     ],

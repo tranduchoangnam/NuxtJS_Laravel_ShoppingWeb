@@ -14,7 +14,8 @@
                 placeholder="First Name"
                 type="text"
                 :submit="submit"
-                :userData="auth.user!"
+                v-if="auth.user"
+                :user="auth.user"
                 @inputValue="
                   (e) => {
                     inputFirstName = e;
@@ -29,7 +30,8 @@
                 placeholder="Last Name"
                 type="text"
                 :submit="submit"
-                :userData="auth.user!"
+                v-if="auth.user"
+                :user="auth.user"
                 @inputValue="
                   (e) => {
                     inputLastName = e;
@@ -44,7 +46,8 @@
             placeholder="Phone Number"
             type="text"
             :submit="submit"
-            :userData="auth.user!"
+            v-if="auth.user"
+            :user="auth.user"
             @inputValue="
               (e) => {
                 inputPhone = e;
@@ -130,10 +133,10 @@ useHead({
 });
 definePageMeta({
   layout: "account",
+  middleware: "auth",
 });
 
 const auth = useAuthStore();
-const token = useCookie<string | null>("token");
 
 const submit = ref(false);
 
@@ -191,7 +194,6 @@ const finalAddress = computed(() => {
 });
 
 onMounted(async () => {
-  auth.token = token.value;
   await auth.get();
   try {
     const res = await axios.get("/db.address.json");

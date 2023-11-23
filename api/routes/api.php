@@ -20,9 +20,16 @@ use App\Http\Controllers\ProductController;
 Route::get('/test', function () {
     return 'test';
 });
-Route::get('/auth',[AuthController::class,'current_user'])->name('login');
-Route::post('/auth/signin', [AuthController::class, 'signin']);
-Route::post('/auth/signup', [AuthController::class, 'signup']);
+Route::controller(AuthController::class)
+    ->prefix('/auth')
+    ->name('auth.')
+    ->group(function(){
+        Route::get('/','current_user')->name('current_user');
+        Route::post('/signin', 'signin')->name('signin');
+        Route::post('/signup', 'signup')->name('signup');
+    });
+
+
 #get user profile
 Route::get('/users/{id}', [UserController::class,'show'])->name('users.show');
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -33,6 +40,7 @@ Route::controller(ProductController::class)
     ->name('products.')
     ->group(function(){
         Route::get('/', 'index')->name('index');
+        Route::get('/{id}', 'show')->name('show');
         Route::get('/collection/{search}', 'showCollection')->name('showCollection');
         Route::get('/brand/{search}', 'showBrand')->name('showBrand');
     });
@@ -47,4 +55,5 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::delete('/{id}', 'destroy')->name('destroy');
     });
     Route::post('/user/update',[UserController::class,'update'])->name('users.update');
+    Route::get('/auth/signout', [AuthController::class,'signout'])->name('auth.signout');
 });

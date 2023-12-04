@@ -66,7 +66,21 @@ class ProductController extends Controller
         $products = Product::where('brand', $decodedSearch)->get();
         return $products;
     }
-
+    public function newArrivals()
+    {
+        $products = Product::orderBy('id', 'desc')->take(10)->get();
+        return $products;
+    }
+    public function bestSeller()
+    {
+        $products = Product::orderBy('stock', 'asc')->take(10)->get();
+        return $products;
+    }
+    public function bestPrice()
+    {
+        $products = Product::whereNotNull('discount')->orderBy('discount', 'desc')->take(10)->get();
+        return $products;
+    }
     /**
      * Update the specified resource in storage.
      */

@@ -33,9 +33,12 @@
 </template>
 <script setup lang="ts">
 import { useAuthStore } from "~/store/auth";
+import { useCartStore } from "~/store/cart";
 const auth = useAuthStore();
+const cart = useCartStore();
 const signout = async () => {
   await auth.signout();
+  cart.removeCart();
   window.location.href = "/";
 };
 </script>

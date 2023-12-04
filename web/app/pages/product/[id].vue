@@ -7,7 +7,7 @@
       <div class="w-[70%] mx-auto">
         <p class="text-[1.3rem]">{{ product.name }}</p>
         <p class="text-[0.7rem]">SKU: {{ product.sku }}</p>
-        <div class="flex my-4">
+        <div class="flex my-4 items-center">
           <p class="text-red-600 mr-4 text-[1.2rem]">
             {{ convertStr(product.price) }}
           </p>
@@ -145,6 +145,18 @@
             bg-color="#daf9e6"
             text-color="#000000"
             class="w-auto px-4 mx-4 border-black"
+            @click="
+              validate();
+              if (!errorColor && !errorSize) {
+                orders.addToOrders(null, {
+                  product,
+                  chosenColor: currentColor,
+                  chosenSize: currentSize,
+                  quantity: 1,
+                });
+                navigateTo('/orders');
+              }
+            "
           >
             <template #name>
               <div class="w-auto">
@@ -154,8 +166,13 @@
           </ButtonRounded>
           <div
             class="rounded-full flex items-center justify-center p-1 bg-white shadow-lg cursor-pointer"
+            @click="
+              liked
+                ? wish.removeFromWishlist(product)
+                : wish.addToWishlist(product)
+            "
           >
-            <v-icon class="text-red-600">mdi-heart</v-icon>
+            <v-icon :class="{ 'text-red-600': liked }">mdi-heart</v-icon>
           </div>
         </div>
         <div class="w-full border-black py-4 px-6">
@@ -179,19 +196,28 @@
 import { useRoute } from "vue-router";
 import { onMounted, ref } from "vue";
 import { useCartStore } from "~/store/cart";
+import { useOrdersStore } from "~/store/orders";
+import { useWishlistStore } from "~/store/wishlist";
 import { convertStr } from "~/utils/convert";
-const cart = useCartStore();
-const listProduct = ref(cart.list);
 import axios from "axios";
+
+const cart = useCartStore();
+const orders = useOrdersStore();
+const wish = useWishlistStore();
+
 const route = useRoute();
-const currentColor = ref(0);
+
 const currentImage = ref(0);
+const currentColor = ref(0);
+const errorColor = ref("");
 const currentSize = ref();
+const errorSize = ref("");
+
 const toggleSize = ref(false);
 const toggleSizeBox = ref(false);
+const liked = ref(false);
+
 const product = ref();
-const errorColor = ref("");
-const errorSize = ref("");
 
 const filteredImages = computed<Array<string>>(() => {
   return product.value.image.filter(
@@ -222,17 +248,25 @@ const breakLine = (str: string) => {
   return s;
 };
 
+watch(wish, () => {
+  liked.value = wish.checkIfExist(product.value);
+});
+
 onMounted(async () => {
   try {
-    const res = await axios.get(`/api/api/products/${route.params.id}`);
+    const res = await axios.get(`/api/api/products/search/${route.params.id}`);
     product.value = res.data;
     console.log(product.value);
+    liked.value = wish.checkIfExist(product.value);
   } catch (error) {
     console.error("Request failed:", error);
   }
 }),
   // When accessing /posts/1, route.params.id will be 1
   console.log(route.params.id);
+useHead({
+  title: "BOO | Product",
+});
 </script>
 <style>
 .border-black {

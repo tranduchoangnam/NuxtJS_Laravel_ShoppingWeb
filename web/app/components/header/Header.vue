@@ -26,7 +26,14 @@
       </div>
       <div class="flex text-[1.5rem]">
         <v-icon @click="next">mdi-magnify</v-icon>
-        <v-icon @click="next" class="ml-4">mdi-heart-outline</v-icon>
+        <v-icon
+          @click="
+            if (auth.token) navigateTo('/wishlist');
+            else navigateTo('/auth/signin');
+          "
+          class="ml-4"
+          >mdi-heart-outline</v-icon
+        >
         <div class="relative">
           <v-icon @click="toggleCart = !toggleCart" class="ml-4"
             >mdi-cart-outline</v-icon
@@ -99,6 +106,9 @@ const delayMouse = () => {
     }
   }, 10);
 };
+onMounted(() => {
+  cart.getCart();
+});
 const next = () => {};
 </script>
 <style scoped>

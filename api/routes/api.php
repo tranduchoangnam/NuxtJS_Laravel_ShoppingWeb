@@ -40,9 +40,12 @@ Route::controller(ProductController::class)
     ->name('products.')
     ->group(function(){
         Route::get('/', 'index')->name('index');
-        Route::get('/{id}', 'show')->name('show');
+        Route::get('/search/{id}', 'show')->name('show');
         Route::get('/collection/{search}', 'showCollection')->name('showCollection');
         Route::get('/brand/{search}', 'showBrand')->name('showBrand');
+        Route::get('/new-arrivals', 'newArrivals')->name('showNewArrivals');
+        Route::get('/best-sellers', 'bestSeller')->name('showBestSellers');
+        Route::get('/best-price', 'bestPrice')->name('showBestPrice');
     });
 
 Route::middleware('auth:sanctum')->group(function () {

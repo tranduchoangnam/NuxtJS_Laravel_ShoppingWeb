@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center w-full h-full"
+    class="flex items-center w-full h-[90%]"
     @mouseover="interval = false"
     @mouseleave="interval = true"
   >

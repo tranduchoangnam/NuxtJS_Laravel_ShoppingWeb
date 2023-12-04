@@ -101,10 +101,15 @@
                 class="!w-[70%]"
                 bg-color="#000000"
                 text-color="#ffffff"
+                @click="
+                  orders.addToOrders(cart.list, null);
+                  cart.removeCart();
+                  navigateTo('/orders');
+                "
               >
                 <template #name>
                   <div class="flex justify-center items-center w-full px-2">
-                    <p>PURCHASE</p>
+                    <p>CHECK OUT</p>
                   </div>
                 </template>
               </ButtonRounded>
@@ -117,9 +122,12 @@
 </template>
 <script setup lang="ts">
 import { useCartStore } from "@/store/cart";
+import { useOrdersStore } from "~/store/orders";
 import { convertStr } from "@/utils/convert";
 
 const cart = useCartStore();
+const orders = useOrdersStore();
+
 const listProduct = ref<any>([]);
 const totalProduct = ref(0);
 const totalCost = computed(() => {
@@ -131,7 +139,9 @@ watch(cart, () => {
   listProduct.value = cart.list;
   totalProduct.value = cart.total;
 });
-
+onMounted(() => {
+  cart.getCart();
+});
 defineEmits(["response"]);
 </script>
 <style scoped>

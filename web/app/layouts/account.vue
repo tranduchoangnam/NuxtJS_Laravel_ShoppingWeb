@@ -15,7 +15,9 @@
           <p>{{ item.title }}</p>
           <v-icon class="">mdi-chevron-right</v-icon>
         </NuxtLink>
-        <div class="relative h-[20rem] w-[10rem] mx-auto flex justify-center">
+        <div
+          class="relative aspect-[1/2] w-[12rem] mx-auto flex justify-center"
+        >
           <CardProduct
             class="!text-[0.7rem]"
             v-if="products"

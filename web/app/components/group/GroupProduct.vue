@@ -1,11 +1,8 @@
 <template>
-  <div class="w-full border">
-    <div class="grid grid-cols-8 mb-16 w-full">
-      <SlideProduct class="col-span-7" v-if="type === 1" :data="data" />
-      <div
-        class="text-[2rem] col-span-1"
-        :class="type === 1 ? 'mr-[4rem]' : 'ml-[4rem]'"
-      >
+  <div class="w-full">
+    <div class="flex mb-16 w-full px-[4rem]">
+      <SlideProduct class="w-[81%]" v-if="type === 1" :data="data" />
+      <div class="text-[2rem] w-[19%]">
         <div
           class="border-b-4"
           :class="type === 0 ? 'border-[#D9D827]' : 'border-[#BC2A27]'"
@@ -13,11 +10,7 @@
           {{ title }}
         </div>
       </div>
-      <SlideProduct
-        class="col-start-2 col-span-7"
-        v-if="type === 0"
-        :data="data"
-      />
+      <SlideProduct class="w-[80%]" v-if="type === 0" :data="data" />
     </div>
   </div>
 </template>

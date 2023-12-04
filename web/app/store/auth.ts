@@ -1,4 +1,3 @@
-import { set } from "lodash";
 import { defineStore } from "pinia";
 import axios from "~/libs/axios";
 import { getCookie, removeCookie } from "~/utils/cookies";
@@ -84,10 +83,10 @@ export const useAuthStore = defineStore("auth", {
         this.user = null;
         this.token = null;
         removeCookie("token");
+
         console.log("auth", auth);
       } catch (error) {
         console.log("error", error);
-        throw error;
       }
     },
   },

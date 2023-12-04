@@ -62,11 +62,11 @@ definePageMeta({
 
 const auth = useAuthStore();
 
-// onMounted(async () => {
-//   await auth.get();
-//   //   console.log(auth.token);
-//   //   console.log(auth.user);
-//   //   console.log(token.value);
-// });
+onMounted(async () => {
+  await auth.get();
+  //   console.log(auth.token);
+  //   console.log(auth.user);
+  //   console.log(token.value);
+});
 </script>
 <style scoped></style>

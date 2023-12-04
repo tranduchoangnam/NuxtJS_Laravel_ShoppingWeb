@@ -74,5 +74,15 @@ export const useCartStore = defineStore("cart", {
         throw e;
       }
     },
+
+    removeCart() {
+      try {
+        localStorage.removeItem("cart");
+        this.list = [];
+        this.total = 0;
+      } catch (e) {
+        throw e;
+      }
+    },
   },
 });

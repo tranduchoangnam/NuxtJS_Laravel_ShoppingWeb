@@ -39,6 +39,6 @@ onMounted(() => {
     current.value >= slides.length
       ? (current.value = current.value - slides.length)
       : current.value;
-  }, 8000);
+  }, 5000);
 });
 </script>

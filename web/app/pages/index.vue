@@ -7,17 +7,18 @@
       :type="0"
       :data="newArrival"
     />
+    <CardLoadingSkeleton />
     <GroupProduct
-      v-if="newArrival"
+      v-if="bestSeller"
       title="BEST SELLER"
       :type="0"
-      :data="newArrival"
+      :data="bestSeller"
     />
     <GroupProduct
-      v-if="newArrival"
+      v-if="bestPrice"
       title="BEST PRICE"
       :type="1"
-      :data="newArrival"
+      :data="bestPrice"
     />
     <ModernTitle name="MIX & MATCH" />
     <img
@@ -33,16 +34,21 @@
 <script setup lang="ts">
 import axios from "axios";
 import ModernTitle from "~/components/title/ModernTitle.vue";
+useHead({
+  title: "BOO | Home",
+});
 const newArrival = ref(null);
-// const token = "1|eVOCuj4qz9gRDjKXY9YaNTVGg30sWLMbiwJZWqvq4f6c7640";
+const bestPrice = ref(null);
+const bestSeller = ref(null);
 onMounted(async () => {
   try {
-    const response = await axios.get(
-      "http://exchange.shop.local:8000/api/api/products"
-    );
+    const resNewArrivals = await axios.get("/api/api/products/new-arrivals");
     // Handle the response data here
-    newArrival.value = response.data;
-    console.log(response.data);
+    newArrival.value = resNewArrivals.data;
+    const resBestSellers = await axios.get("/api/api/products/best-sellers");
+    bestSeller.value = resBestSellers.data;
+    const resBestPrice = await axios.get("/api/api/products/best-price");
+    bestPrice.value = resBestPrice.data;
   } catch (error) {
     // Handle errors here
     console.error("Request failed:", error);

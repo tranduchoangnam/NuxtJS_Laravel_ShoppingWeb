@@ -11,6 +11,9 @@
 </template>
 <script setup lang="ts">
 import axios from "axios";
+useHead({
+  title: "BOO | Flex to school",
+});
 const banners = [
   "https://cdn.boo.vn/media/wysiwyg/web.jpg",
   "https://cdn.boo.vn/media/wysiwyg/web_2.jpg",
@@ -19,7 +22,7 @@ const collection = ref(null);
 onMounted(async () => {
   try {
     const response = await axios.get(
-      "http://exchange.shop.local:8000/api/api/products/collection/flex-to-school"
+      "/api/api/products/collection/flex-to-school"
     );
     // Handle the response data here
     collection.value = response.data;

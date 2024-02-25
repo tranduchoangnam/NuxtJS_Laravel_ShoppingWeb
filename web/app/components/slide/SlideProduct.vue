@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center w-full"
+    class="flex items-center w-full h-[90%]"
     @mouseover="interval = false"
     @mouseleave="interval = true"
   >
@@ -14,10 +14,13 @@
         >mdi-chevron-left</v-icon
       >
     </div>
-    <div class="grid grid-cols-3 w-full">
-      <div v-for="index in 3" :key="index">
+    <div class="relative grid grid-cols-3 w-full h-full gap-4">
+      <div
+        v-for="index in 3"
+        :key="index"
+        class="w-full h-full overflow-hidden"
+      >
         <CardProduct
-          class="ma-2"
           :data="slides.data[(current + index - 1) % slides.data.length]"
         />
       </div>

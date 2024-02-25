@@ -91,30 +91,8 @@ const items = ref([
   {
     item: [
       {
-        title: "TOP",
-        link: "/",
-        list: [
-          { name: "T-shirt", link: "/" },
-          { name: "Polo", link: "/" },
-          { name: "Gile", link: "/" },
-          { name: "Shirt", link: "/" },
-          { name: "Sweatshirt & Hoodies", link: "/" },
-        ],
-      },
-      {
-        title: "BOTTOM",
-        link: "/",
-        list: [
-          { name: "Jeans", link: "/" },
-          { name: "Jogger", link: "/" },
-          { name: "Khaki", link: "/" },
-          { name: "Short", link: "/" },
-          { name: "Skirt", link: "/" },
-        ],
-      },
-      {
-        title: "ACCESSORIES",
-        link: "/",
+        title: "Explore Now",
+        link: "/graphic",
         list: [],
       },
     ],
@@ -128,33 +106,33 @@ const items = ref([
       },
       {
         title: "MARVEL GO VN",
-        link: "/",
+        link: "/collection/marvel-go-vn",
         list: [],
       },
       {
         title: "BOO LAAB x HANOI BUFFALOES",
-        link: "/",
+        link: "/collection/hnbxboolaab",
         list: [],
       },
 
       {
         title: "BOOLAAB INFINITEE 07",
-        link: "/",
+        link: "/collection/infinite-07",
         list: [],
       },
       {
         title: "BOOLAAB EXPERIMENTAL",
-        link: "/",
+        link: "/collection/boolaab",
         list: [],
       },
       {
-        title: "BOO ESSENTIAL",
-        link: "/",
+        title: "BOO ESSENTIALS",
+        link: "/collection/booxessentials",
         list: [],
       },
       {
         title: "BOO LOONEY TUNES",
-        link: "/",
+        link: "/collection/looney-tunes",
         list: [],
       },
     ],

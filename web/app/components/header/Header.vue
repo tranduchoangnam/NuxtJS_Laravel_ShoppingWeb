@@ -26,9 +26,26 @@
       </div>
       <div class="flex text-[1.5rem]">
         <v-icon @click="next">mdi-magnify</v-icon>
-        <v-icon @click="next" class="ml-4">mdi-heart-outline</v-icon>
-        <v-icon @click="next" class="ml-4">mdi-cart-outline</v-icon>
-        <NuxtLink v-if="!auth.user" to="/auth/signin"
+        <v-icon
+          @click="
+            if (auth.token) navigateTo('/wishlist');
+            else navigateTo('/auth/signin');
+          "
+          class="ml-4"
+          >mdi-heart-outline</v-icon
+        >
+        <div class="relative">
+          <v-icon @click="toggleCart = !toggleCart" class="ml-4"
+            >mdi-cart-outline</v-icon
+          >
+          <div
+            v-if="totalProduct"
+            class="absolute top-0 right-0 rounded-full w-[1rem] h-[1rem] flex justify-center items-center bg-red-600"
+          >
+            <p class="text-white text-[0.7rem]">{{ totalProduct }}</p>
+          </div>
+        </div>
+        <NuxtLink v-if="!auth.token" to="/auth/signin"
           ><v-icon class="ml-4">mdi-account-outline</v-icon></NuxtLink
         >
         <div class="relative" v-else>
@@ -40,7 +57,7 @@
       </div>
     </div>
     <HeaderMenu
-      class="absolute top-[4rem] left-0 w-full"
+      class="absolute top-[5rem] left-0 w-full"
       v-if="lastNav"
       :nav="showIndex(lastNav)"
       @mouseover="hoverNav = lastNav"
@@ -49,14 +66,25 @@
         delayMouse();
       "
     />
+    <CardCart v-if="toggleCart" @response="() => (toggleCart = !toggleCart)" />
   </div>
 </template>
 <script setup lang="ts">
 import UserMenu from "./UserMenu.vue";
 import { useAuthStore } from "~/store/auth";
+import { useCartStore } from "@/store/cart";
+const cart = useCartStore();
+const totalProduct = ref(0);
+watch(
+  () => cart.total,
+  (value) => {
+    totalProduct.value = value;
+  }
+);
+
 const toggleUserMenu = ref(false);
+const toggleCart = ref(false);
 const auth = useAuthStore();
-const token = useCookie<string | null>("token");
 const lastNav = ref("");
 const hoverNav = ref("");
 const listNav = [
@@ -78,6 +106,9 @@ const delayMouse = () => {
     }
   }, 10);
 };
+onMounted(() => {
+  cart.getCart();
+});
 const next = () => {};
 </script>
 <style scoped>

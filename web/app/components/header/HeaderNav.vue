@@ -1,5 +1,5 @@
 <template>
-  <div @mouseover="$emit('response', name)" @mouseleave="$emit('response', '')">
+  <div>
     {{ name }}
   </div>
 </template>
@@ -10,5 +10,4 @@ defineProps({
     required: true,
   },
 });
-defineEmits(["response"]);
 </script>

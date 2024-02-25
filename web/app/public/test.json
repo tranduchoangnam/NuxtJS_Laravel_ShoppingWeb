@@ -1,0 +1,334 @@
+{
+  "[data-role=swatch-option-32498]": {
+    "Magento_Swatches/js/swatch-renderer": {
+      "selectorProduct": ".product-item-details",
+      "onlySwatches": true,
+      "enableControlLabel": true,
+      "numberToShow": 16,
+      "jsonConfig": {
+        "attributes": {
+          "93": {
+            "id": "93",
+            "code": "color",
+            "label": "Color",
+            "options": [
+              {
+                "id": "3263",
+                "label": "Tiedye Pale Green",
+                "products": ["32518", "32519", "32520", "32521"]
+              },
+              {
+                "id": "1316",
+                "label": "M\u00e0u tr\u1eafng kem",
+                "products": ["32483", "32484", "32485", "32497"]
+              },
+              {
+                "id": "2503",
+                "label": "Solid.Xanh l\u00e1 c\u00e2y/ Green.Xanh l\u00e1 \u0111\u1eadm",
+                "products": ["32487", "32488", "32489", "32490"]
+              }
+            ],
+            "position": "0"
+          },
+          "173": {
+            "id": "173",
+            "code": "size",
+            "label": "Size",
+            "options": [
+              {
+                "id": "70",
+                "label": "XS",
+                "products": ["32483", "32487", "32518"]
+              },
+              {
+                "id": "67",
+                "label": "S",
+                "products": ["32484", "32488", "32519"]
+              },
+              {
+                "id": "65",
+                "label": "M",
+                "products": ["32489", "32497", "32520"]
+              },
+              {
+                "id": "64",
+                "label": "L",
+                "products": ["32485", "32490", "32521"]
+              },
+              { "id": "69", "label": "XL", "products": [] }
+            ],
+            "position": "0"
+          }
+        },
+        "template": "<%- data.price %>\u00a0\u20ab",
+        "currencyFormat": "%s\u00a0\u20ab",
+        "optionPrices": {
+          "32483": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32484": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32485": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32486": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32487": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32488": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32489": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32490": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32491": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32492": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32493": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32494": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32495": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32496": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32497": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32518": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32519": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32520": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32521": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          },
+          "32522": {
+            "baseOldPrice": { "amount": 599000 },
+            "oldPrice": { "amount": 599000 },
+            "basePrice": { "amount": 599000 },
+            "finalPrice": { "amount": 599000 },
+            "tierPrices": [],
+            "msrpPrice": { "amount": 0 }
+          }
+        },
+        "priceFormat": {
+          "pattern": "%s\u00a0\u20ab",
+          "precision": 0,
+          "requiredPrecision": 0,
+          "decimalSymbol": ",",
+          "groupSymbol": ".",
+          "groupLength": 3,
+          "integerRequired": true
+        },
+        "prices": {
+          "baseOldPrice": { "amount": 599000 },
+          "oldPrice": { "amount": 599000 },
+          "basePrice": { "amount": 599000 },
+          "finalPrice": { "amount": 599000 }
+        },
+        "productId": "32498",
+        "chooseText": "Ch\u1ecdn m\u1ed9t t\u00f9y ch\u1ecdn...",
+        "images": [],
+        "index": {
+          "32483": { "93": "1316", "173": "70" },
+          "32484": { "93": "1316", "173": "67" },
+          "32485": { "93": "1316", "173": "64" },
+          "32486": { "93": "1316", "173": "69" },
+          "32487": { "93": "2503", "173": "70" },
+          "32488": { "93": "2503", "173": "67" },
+          "32489": { "93": "2503", "173": "65" },
+          "32490": { "93": "2503", "173": "64" },
+          "32491": { "93": "2503", "173": "69" },
+          "32492": { "93": "2007", "173": "70" },
+          "32493": { "93": "2007", "173": "67" },
+          "32494": { "93": "2007", "173": "65" },
+          "32495": { "93": "2007", "173": "64" },
+          "32496": { "93": "2007", "173": "69" },
+          "32497": { "93": "1316", "173": "65" },
+          "32518": { "93": "3263", "173": "70" },
+          "32519": { "93": "3263", "173": "67" },
+          "32520": { "93": "3263", "173": "65" },
+          "32521": { "93": "3263", "173": "64" },
+          "32522": { "93": "3263", "173": "69" }
+        },
+        "preSelectedGallery": [],
+        "channel": "website",
+        "salesChannelCode": "base",
+        "sku": {
+          "32483": "8930001009868",
+          "32484": "8930001009875",
+          "32485": "8930001009899",
+          "32486": "8930001009905",
+          "32487": "8930001009912",
+          "32488": "8930001009929",
+          "32489": "8930001009936",
+          "32490": "8930001009943",
+          "32491": "8930001009950",
+          "32492": "8930001009967",
+          "32493": "8930001009974",
+          "32494": "8930001009981",
+          "32495": "8930001009998",
+          "32496": "8930001010000",
+          "32497": "8930001009882",
+          "32518": "8930001011656",
+          "32519": "8930001011663",
+          "32520": "8930001011670",
+          "32521": "8930001011687",
+          "32522": "8930001011694"
+        }
+      },
+      "jsonSwatchConfig": {
+        "93": {
+          "3263": {
+            "type": "1",
+            "value": "#a1ffc7",
+            "label": "Tiedye Pale Green"
+          },
+          "1316": {
+            "type": "1",
+            "value": "#FFFFFF",
+            "label": "M\u00e0u tr\u1eafng kem"
+          },
+          "2007": {
+            "type": "1",
+            "value": "#00FF00",
+            "label": "Patten (h\u1ecda ti\u1ebft).Xanh l\u00e1 c\u00e2y/ Green.G3"
+          },
+          "2503": {
+            "type": "1",
+            "value": "#00FF00",
+            "label": "Solid.Xanh l\u00e1 c\u00e2y/ Green.Xanh l\u00e1 \u0111\u1eadm"
+          },
+          "additional_data": "{\"swatch_input_type\":\"visual\",\"update_product_preview_image\":\"1\",\"use_product_image_for_swatch\":\"1\"}"
+        },
+        "173": {
+          "70": { "type": "0", "value": "XS", "label": "XS" },
+          "67": { "type": "0", "value": "S", "label": "S" },
+          "65": { "type": "0", "value": "M", "label": "M" },
+          "64": { "type": "0", "value": "L", "label": "L" },
+          "69": { "type": "0", "value": "XL", "label": "XL" },
+          "additional_data": "{\"swatch_input_type\":\"text\",\"use_product_image_for_swatch\":0,\"update_product_preview_image\":\"0\"}"
+        }
+      },
+      "mediaCallback": "https\u003A\u002F\u002Fboo.vn\u002Fswatches\u002Fajax\u002Fmedia\u002F",
+      "jsonSwatchImageSizeConfig": {
+        "swatchImage": { "width": 300, "height": 450 },
+        "swatchThumb": { "height": 105, "width": 70 }
+      },
+      "showTooltip": false
+    }
+  }
+}

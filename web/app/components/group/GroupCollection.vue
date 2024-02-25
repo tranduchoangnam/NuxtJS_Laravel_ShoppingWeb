@@ -1,23 +1,39 @@
 <template>
   <div class="grid grid-cols-3 w-full mb-16">
-    <a class="overflow-hidden" href="/">
-      <img class="swipe" :src="link[current]"
+    <a class="overflow-hidden" :href="link[current].href">
+      <img class="swipe" :src="link[current].img"
     /></a>
-    <a class="overflow-hidden" href="/">
-      <img class="swipe" :src="link[current + 2]"
+    <a class="overflow-hidden" :href="link[current + 2].href">
+      <img class="swipe" :src="link[current + 2].img"
     /></a>
-    <a href="/"><img :src="link[4]" /></a>
+    <a :href="link[4].href"><img :src="link[4].img" /></a>
   </div>
 </template>
 <script setup lang="ts">
 const current = ref(0);
 const link = ref([
-  "https://cdn.boo.vn/media/wysiwyg/mobile-1409-sfw.gif",
-  "https://cdn.boo.vn/media/wysiwyg/mobi.JPG",
-  "https://cdn.boo.vn/media/wysiwyg/Mobile-600x1016px-min.png",
-  "https://cdn.boo.vn/media/wysiwyg/online_webbanner_mobile.png",
-  "https://cdn.boo.vn/media/wysiwyg/mobi_1.png",
+  {
+    img: "https://cdn.boo.vn/media/wysiwyg/mobile-1409-sfw.gif",
+    href: "/graphic",
+  },
+  {
+    img: "https://cdn.boo.vn/media/wysiwyg/mobi.JPG",
+    href: "/collection/flex-to-school",
+  },
+  {
+    img: "https://cdn.boo.vn/media/wysiwyg/Mobile-600x1016px-min.png",
+    href: "/collection/looney-tunes",
+  },
+  {
+    img: "https://cdn.boo.vn/media/wysiwyg/online_webbanner_mobile.png",
+    href: "/collection/marvel-go-vn",
+  },
+  {
+    img: "https://cdn.boo.vn/media/wysiwyg/mobi_1.png",
+    href: "/collection/hnbxboolaab",
+  },
 ]);
+
 onMounted(() => {
   setInterval(() => {
     current.value = 1 - current.value;

@@ -1,0 +1,177 @@
+[
+  {
+    "hoursOpen": "Mở cửa: 10:30 - 22:00 (Riêng thứ 7 và CN hàng tuần : 09:30 - 22:00)",
+    "address": "Tầng 2 TTTM Aeon mall Long Biên 27 Cổ Linh, Phường Long Biên, Quận Long Biên, Thành phố Hà Nội",
+    "name": "BOO Aeon Mall Long Biên Hà Nội",
+    "tel": "Hotline: 0852519800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Tầng+2+TTTM+Aeon+mall+Long+Biên+27+Cổ+Linh,+Phường+Long+Biên,+Quận+Long+Biên,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00 (Riêng thứ 7 và CN hàng tuần: 09:30 - 22:00)",
+    "address": "30 Bờ Bao Tân Thắng, Phường Sơn Kỳ, Quận Tân Phú, Thành phố Hồ Chí Minh",
+    "name": "BOO Aeon Mall Tân Phú HCM",
+    "tel": "Hotline: 0852483800",
+    "map": "https://www.google.com/maps/search/?api=1&query=30+Bờ+Bao+Tân+Thắng,+Phường+Sơn+Kỳ,+Quận+Tân+Phú,+Thành+phố+Hồ+Chí+Minh"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00 (Riêng thứ 7 và CN hàng tuần: 09:30 - 22:00)",
+    "address": "Tâng 2 TTTM Aeon Mall Hải Phòng Lề Chân số 10 Võ Nguyên Giáp, Phường Vĩnh Niệm, Quận Lê Chân, Thành phố Hải Phòng",
+    "name": "BOO Aeon Mall Lê Chân Hải Phòng",
+    "tel": "Hotline: 0852376800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Tâng+2+TTTM+Aeon+Mall+Hải+Phòng+Lề+Chân+số+10+Võ+Nguyên+Giáp,+Phường+Vĩnh+Niệm,+Quận+Lê+Chân,+Thành+phố+Hải+Phòng"
+  },
+  {
+    "hoursOpen": "Mở cửa: 09:00 - 22:00",
+    "address": "308 Bà Triệu,, Phường Lê Đại Hành, Quận Hai Bà Trưng, Thành phố Hà Nội",
+    "name": "BOO Bà Triệu Hà Nội",
+    "tel": "Hotline: 0852487800",
+    "map": "https://www.google.com/maps/search/?api=1&query=308+Bà+Triệu,,+Phường+Lê+Đại+Hành,+Quận+Hai+Bà+Trưng,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "TTTM Vincom Megamall Thảo Điền, 161 Võ Nguyên Giáp, Phường Thảo Điền, Thành phố Thủ Đức, Thành phố Hồ Chí Minh",
+    "name": "BZL Vincom Thảo Điền HCM",
+    "tel": "Hotline: 0852406800",
+    "map": "https://www.google.com/maps/search/?api=1&query=TTTM+Vincom+Megamall+Thảo+Điền,+161+Võ+Nguyên+Giáp,+Phường+Thảo+Điền,+Thành+phố+Thủ+Đức,+Thành+phố+Hồ+Chí+Minh"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "Tầng 1 -TTTM Big C Thăng Long 222 Đ.Trần Duy Hưng, Phường Trung Hoà, Quận Cầu Giấy, Thành phố Hà Nội",
+    "name": "BOO Big C Thăng Long Hà Nội",
+    "tel": "Hotline: 0852506800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Tầng+1+-TTTM+Big+C+Thăng+Long+222+Đ.Trần+Duy+Hưng,+Phường+Trung+Hoà,+Quận+Cầu+Giấy,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 09:00 - 22:00",
+    "address": "110 Cầu Giấy, Phường Quan Hoa, Quận Cầu Giấy, Thành phố Hà Nội",
+    "name": "BOO Cầu Giấy Hà Nội",
+    "tel": "Hotline: 0852486800",
+    "map": "https://www.google.com/maps/search/?api=1&query=110+Cầu+Giấy,+Phường+Quan+Hoa,+Quận+Cầu+Giấy,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 09:00 - 22:00",
+    "address": "135 Nguyễn Văn Cừ, Phường Ngọc Lâm, Quận Long Biên, Thành phố Hà Nội",
+    "name": "BOO Nguyễn Văn Cừ Hà Nội",
+    "tel": "Hotline: 0852469800",
+    "map": "https://www.google.com/maps/search/?api=1&query=135+Nguyễn+Văn+Cừ,+Phường+Ngọc+Lâm,+Quận+Long+Biên,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 09:00 - 22:00",
+    "address": "135 Trần Phú, Phường Văn Quán, Quận Hà Đông, Thành phố Hà Nội",
+    "name": "BOO Trần Phú Hà Nội",
+    "tel": "Hotline: 0852452800",
+    "map": "https://www.google.com/maps/search/?api=1&query=135+Trần+Phú,+Phường+Văn+Quán,+Quận+Hà+Đông,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 09:00 - 22:00",
+    "address": "51 Hồ Tùng Mậu, Phường Trường Thi, Thành phố Vinh, Tỉnh Nghệ An",
+    "name": "BOO Hồ Tùng Mậu Vinh",
+    "tel": "Hotline: 0852389800",
+    "map": "https://www.google.com/maps/search/?api=1&query=51+Hồ+Tùng+Mậu,+Phường+Trường+Thi,+Thành+phố+Vinh,+Tỉnh+Nghệ+An"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00 (Riêng thứ 7 và CN hàng tuần: 09:30 - 22:00)",
+    "address": "Giàn Hàng T233 Tầng 2 TTTM Aeonmall Hà Đông, Phường Dương Nội, Quận Hà Đông, Thành phố Hà Nội",
+    "name": "BOO Aeon Mall Hà Đông Hà Nội",
+    "tel": "Hotline: 0852477800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Giàn+Hàng+T233+Tầng+2+TTTM+Aeonmall+Hà+Đông,+Phường+Dương+Nội,+Quận+Hà+Đông,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "240-242 Phạm Văn Đồng, Phường Hiệp Bình Chánh, Thành phố Thủ Đức, Thành phố Hồ Chí Minh",
+    "name": "BOO Giga Mall HCM",
+    "tel": "Hotline: 0852361800",
+    "map": "https://www.google.com/maps/search/?api=1&query=240-242+Phạm+Văn+Đồng,+Phường+Hiệp+Bình+Chánh,+Thành+phố+Thủ+Đức,+Thành+phố+Hồ+Chí+Minh"
+  },
+  {
+    "hoursOpen": "Mở cửa: 09:30 - 22:00",
+    "address": "Gian hàng 225 tầng 2, TTTM The Loop IPH , 241 Xuân Thủy, Phường Dịch Vọng Hậu, Quận Cầu Giấy, Thành phố Hà Nội",
+    "name": "BOO The Loop Hà Nội",
+    "tel": "Hotline: 0852509800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Gian+hàng+225+tầng+2,+TTTM+The+Loop+IPH+,+241+Xuân+Thủy,+Phường+Dịch+Vọng+Hậu,+Quận+Cầu+Giấy,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "Tầng 3 Tòa nhà Lotte 54 Liễu Giai, Phường Cống Vị, Quận Ba Đình, Thành phố Hà Nội",
+    "name": "BOO Lotte Center Hà Nội",
+    "tel": "Hotline: 0852503800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Tầng+3+Tòa+nhà+Lotte+54+Liễu+Giai,+Phường+Cống+Vị,+Quận+Ba+Đình,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "B2- R6 4748 TTTM VMM Royal City 72 Nguyễn Trãi, Phường Thượng Đình, Quận Thanh Xuân, Thành phố Hà Nội",
+    "name": "BOO Vincom Royal City Hà Nội",
+    "tel": "Hotline: 0852513800",
+    "map": "https://www.google.com/maps/search/?api=1&query=B2-+R6+4748+TTTM+VMM+Royal+City+72+Nguyễn+Trãi,+Phường+Thượng+Đình,+Quận+Thanh+Xuân,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "Gian Hàng 20-22 Đường Tương Lai , T10, Times city 458 Đường Minh Khai, Phường Vĩnh Tuy, Quận Hai Bà Trưng, Thành phố Hà Nội",
+    "name": "BOO Vincom Times City Hà Nội",
+    "tel": "Hotline: 0852327800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Gian+Hàng+20-22+Đường+Tương+Lai+,+T10,+Times+city+458+Đường+Minh+Khai,+Phường+Vĩnh+Tuy,+Quận+Hai+Bà+Trưng,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "TTTM Vạn Hạnh Mall , Số 11 Sư Vạn Hạnh, Phường 12, Quận 10, Thành phố Hồ Chí Minh",
+    "name": "BZL Vạn Hạnh Mall HCM",
+    "tel": "Hotline: 0852397800",
+    "map": "https://www.google.com/maps/search/?api=1&query=TTTM+Vạn+Hạnh+Mall+,+Số+11+Sư+Vạn+Hạnh,+Phường+12,+Quận+10,+Thành+phố+Hồ+Chí+Minh"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "Gian Hàng L2-05 A TTTM VINCOM Đà Nẵng 910 A- Ngô Quyền, Phường An Hải Bắc, Quận Sơn Trà, Thành phố Đà Nẵng",
+    "name": "BZL Vincom Đà Nẵng",
+    "tel": "Hotline: 0852396800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Gian+Hàng+L2-05+A+TTTM+VINCOM+Đà+Nẵng+910+A-+Ngô+Quyền,+Phường+An+Hải+Bắc,+Quận+Sơn+Trà,+Thành+phố+Đà+Nẵng"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "Gian hàng L1-13 Vincom Lý Thái Tổ, Phường Suối Hoa, Thành phố Bắc Ninh, Tỉnh Bắc Ninh",
+    "name": "BOO Vincom Bắc Ninh",
+    "tel": "Hotline: 0852369800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Gian+hàng+L1-13+Vincom+Lý+Thái+Tổ,+Phường+Suối+Hoa,+Thành+phố+Bắc+Ninh,+Tỉnh+Bắc+Ninh"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "TTTM Vincom Hạ Long Plaza, Số 66, Cảng Mới , Khu Cột Đồng Hồ, Phường Bạch Đằng, Thành phố Hạ Long, Tỉnh Quảng Ninh",
+    "name": "BOO Vincom Hạ Long Quảng Ninh",
+    "tel": "Hotline: 0852374800",
+    "map": "https://www.google.com/maps/search/?api=1&query=TTTM+Vincom+Hạ+Long+Plaza,+Số+66,+Cảng+Mới+,+Khu+Cột+Đồng+Hồ,+Phường+Bạch+Đằng,+Thành+phố+Hạ+Long,+Tỉnh+Quảng+Ninh"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "Vin Com Hòa Bình- 332 Cù Chính Lan, Phường Đồng Tiến, Thành phố Hòa Bình, Tỉnh Hoà Bình",
+    "name": "BOO Vincom Hòa Bình",
+    "tel": "Hotline: 0852384800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Vin+Com+Hòa+Bình-+332+Cù+Chính+Lan,+Phường+Đồng+Tiến,+Thành+phố+Hòa+Bình,+Tỉnh+Hoà+Bình"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "Gian Hàng L1-03 Vincom Plaza Móng Cái Đường Đại Lộ Hòa Bình, Phường Trần Phú, Thành phố Móng Cái, Tỉnh Quảng Ninh",
+    "name": "BOO Vincom Móng Cái Quảng Ninh",
+    "tel": "Hotline: 0852394800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Gian+Hàng+L1-03+Vincom+Plaza+Móng+Cái+Đường+Đại+Lộ+Hòa+Bình,+Phường+Trần+Phú,+Thành+phố+Móng+Cái,+Tỉnh+Quảng+Ninh"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "Giàn Hàng L2-09 TTTM Vincom Plaza Thanh Hóa, Số 27 Trần Phứ, Phường Lam Sơn, Thành phố Thanh Hóa, Tỉnh Thanh Hóa",
+    "name": "BOO Vincom Thanh Hóa",
+    "tel": "Hotline: 0852284800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Giàn+Hàng+L2-09+TTTM+Vincom+Plaza+Thanh+Hóa,+Số+27+Trần+Phứ,+Phường+Lam+Sơn,+Thành+phố+Thanh+Hóa,+Tỉnh+Thanh+Hóa"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "Vincom Trần Duy Hưng , 119 Đường Trần Duy Hưng, Phường Trung Hoà, Quận Cầu Giấy, Thành phố Hà Nội",
+    "name": "BLA Vincom Trần Duy Hưng Hà Nội",
+    "tel": "Hotline: 0852479800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Vincom+Trần+Duy+Hưng+,+119+Đường+Trần+Duy+Hưng,+Phường+Trung+Hoà,+Quận+Cầu+Giấy,+Thành+phố+Hà+Nội"
+  },
+  {
+    "hoursOpen": "Mở cửa: 10:00 - 22:00",
+    "address": "Gian Hàng L2-09 , TTTM Vincom Ocean Park, Xã Kiêu Kỵ, Huyện Gia Lâm, Thành phố Hà Nội",
+    "name": "BOO Vincom Ocean Park Hà Nội",
+    "tel": "Hotline: 0852457800",
+    "map": "https://www.google.com/maps/search/?api=1&query=Gian+Hàng+L2-09+,+TTTM+Vincom+Ocean+Park,+Xã+Kiêu+Kỵ,+Huyện+Gia+Lâm,+Thành+phố+Hà+Nội"
+  }
+]

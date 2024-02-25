@@ -45,11 +45,19 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
+    public function show(string $id)
+    {
+        $product = Product::find($id);
+        if (!$product) {
+            return response("Not found", 404);
+        }
+        return $product;
+    }
     public function showCollection(string $search)
     {
         $decodedSearch = str_replace('-',' ', $search);
-        $decodedSearch= Str::upper($decodedSearch);
-        $products = Product::where('collection', $decodedSearch)->get();
+        $decodedSearch= strtolower($decodedSearch);
+        $products = Product::whereRaw('LOWER(collection) = ?', [$decodedSearch])->get();
         return $products;
     }
     public function showBrand(string $search)
@@ -58,7 +66,21 @@ class ProductController extends Controller
         $products = Product::where('brand', $decodedSearch)->get();
         return $products;
     }
-
+    public function newArrivals()
+    {
+        $products = Product::orderBy('id', 'desc')->take(10)->get();
+        return $products;
+    }
+    public function bestSeller()
+    {
+        $products = Product::orderBy('stock', 'asc')->take(10)->get();
+        return $products;
+    }
+    public function bestPrice()
+    {
+        $products = Product::whereNotNull('discount')->orderBy('discount', 'desc')->take(10)->get();
+        return $products;
+    }
     /**
      * Update the specified resource in storage.
      */
